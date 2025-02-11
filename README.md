@@ -1,77 +1,77 @@
 # El meu repositori de M4
 
-## [Activitat de programador de tasques.md]
-#Gestión_de_LDAP
-#Crear_una_unidad_organizativa
+Activitat de programador de tasques
+Gestión de LDAP
+Crear una unidad organizativa
 bash
 Copiar
 Editar
 ldapadd -x -D "cn=admin,dc=example,dc=com" -W -f ou-jetagache.ldif
 slapcat | grep "ou=Jet-Agache"
-#Añadir_usuarios_con_un_archivo_LDIF
+Añadir usuarios con un archivo LDIF
 bash
 Copiar
 Editar
 ldapadd -x -D "cn=admin,dc=example,dc=com" -W -f users.ldif
 slapcat | grep "uid="
-#Buscar_usuarios_de_una_ubicación_específica
+Buscar usuarios de una ubicación específica
 bash
 Copiar
 Editar
 ldapsearch -x -b "ou=Jet-Agache,dc=example,dc=com" "(localityName=SpecificLocation)"
-#Eliminar_un_usuario_en_LDAP
+Eliminar un usuario en LDAP
 bash
 Copiar
 Editar
 ldapdelete -x -D "cn=admin,dc=example,dc=com" -W "uid=user1,ou=Jet-Agache,dc=example,dc=com"
-#Administración_de_usuarios
-#Crear_un_usuario_administrador
+Administración de usuarios
+Crear un usuario administrador
 bash
 Copiar
 Editar
 sudo adduser newadmin
 sudo usermod -aG sudo newadmin
-#Configurar_una_fecha_de_expiración_para_un_usuario
+Configurar una fecha de expiración para un usuario
 bash
 Copiar
 Editar
 sudo chage -E 2025-03-11 username
-#Eliminar_un_usuario
+Eliminar un usuario
 bash
 Copiar
 Editar
 sudo userdel -r username
-#Monitorización_del_sistema
-#Mostrar_espacio_disponible_en_home
+Monitorización del sistema
+Mostrar espacio disponible en /home
 bash
 Copiar
 Editar
 df -h /home
-#Consultar_particiones_del_disco
+Consultar particiones del disco
 bash
 Copiar
 Editar
 fdisk -l
-#Automatización_de_tareas
-#Programar_reinicios_con_cron
+Automatización de tareas
+Programar reinicios con cron
 bash
 Copiar
 Editar
 sudo crontab -e
 # Ejemplo: reiniciar lunes y viernes a las 20:00
 0 20 * * 1,5 /sbin/shutdown -r now
-#Extras
-#Hacer_backup_de_LDAP
+Extras
+Hacer backup de LDAP
 bash
 Copiar
 Editar
 slapcat > ldap-backup-$(date +%F).ldif
-#Cambiar_el_shell_de_un_usuario
+Cambiar el shell de un usuario
 bash
 Copiar
 Editar
 sudo chsh -s /bin/zsh username
-#Montar_un_disco_manual
+Montar un disco manual
 bash
 Copiar
 Editar
